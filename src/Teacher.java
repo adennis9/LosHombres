@@ -3,11 +3,10 @@ public class Teacher {
 	
 	String firstName,
 			lastName,
-			dateOfBirth,
-			profession,
-			location,
-			grade,
-			gender;
+			region,
+			dateJoined,
+			gender,
+			incomeRange;
 	
 	public Teacher(String firstName, String lastName, String dateOfBirth, String profession, String location, String grade, String gender) {
 		
@@ -21,19 +20,15 @@ public class Teacher {
 		lastName = name;
 	}
 	
-	public void setDateOfBirth(String dob) {
-		dateOfBirth = dob;
+	public void setRegion(String location) {
+		region = location;
 	}
 	
-	public void setProfession(String job) {
-		profession = job;
+	public void setDateJoined(String startDate) {
+		dateJoined = startDate;
 	}
-	public void setLocation(String place) {
-		location = place;
-	}
-	
-	public void setGrade(String lvl) {
-		grade = lvl;
+	public void setIncomeRange(String income) {
+		incomeRange = income;
 	}
 	
 	public void setGender(String sex) {
@@ -48,16 +43,16 @@ public class Teacher {
 		return lastName;
 	}
 	
-	public String getDateOfBirth() {
-		return dateOfBirth;
+	public String getRegion() {
+		return region;
 	}
 	
-	public String getProfession() {
-		return profession;
+	public String getDateJoined() {
+		return dateJoined;
 	}
 	
-	public String getLocation() {
-		return location;
+	public String getIncomeRange(){
+		return incomeRange;
 	}
 	
 	public String getGender(){
@@ -67,9 +62,9 @@ public class Teacher {
 	public String toString() {
 		return "First Name: " + firstName +
 				"\nLast Name: " + lastName +
-				"\nDate of Birth: " + dateOfBirth +
-				"\nProfession: " + profession +
-				"\nLocation: " + location +
+				"\nRegion: " + region +
+				"\nDate Joined: " + dateJoined +
+				"\nIncome Range: " + incomeRange +
 				"\nGender: " + gender;
 	}
 }
