@@ -1,24 +1,19 @@
 
 public class Teacher {
 	
-	String firstName,
-			lastName,
-			region,
+	String	region,
 			dateJoined,
 			gender,
 			incomeRange;
 	
-	public Teacher(String firstName, String lastName, String dateOfBirth, String profession, String location, String grade, String gender) {
+	public Teacher(String sex, String location, String startDate, String salary) {
+		gender = sex;
+		region = location;
+		dateJoined = startDate;
+		incomeRange = salary;
 		
 	}
 	
-	public void setFirstName(String name) {
-		firstName = name;
-	}
-	
-	public void setLastName(String name) {
-		lastName = name;
-	}
 	
 	public void setRegion(String location) {
 		region = location;
@@ -35,13 +30,6 @@ public class Teacher {
 		gender = sex;
 	}
 	
-	public String getFirstName() {
-		return firstName;
-	}
-	
-	public String getLastName() {
-		return lastName;
-	}
 	
 	public String getRegion() {
 		return region;
@@ -59,12 +47,4 @@ public class Teacher {
 		return gender;
 	}
 	
-	public String toString() {
-		return "First Name: " + firstName +
-				"\nLast Name: " + lastName +
-				"\nRegion: " + region +
-				"\nDate Joined: " + dateJoined +
-				"\nIncome Range: " + incomeRange +
-				"\nGender: " + gender;
-	}
 }
