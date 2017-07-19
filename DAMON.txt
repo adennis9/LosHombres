@@ -1,0 +1,38 @@
+int lessThanFifty,
+		greaterThanEighty,
+		betweenFiftyAndEighty = 0;
+	
+	public void averageIncome(String income) {
+		if (income.equals("<50"))
+			incrementFifty();
+		else if (income.equals("80+"))
+			incrementEighty();
+		else
+			incrementBetweenFiftyAndEighty();
+
+	}
+	
+	public void incrementFifty() {
+		lessThanFifty++;
+	}
+	
+	public void incrementEighty() {
+		greaterThanEighty++;
+	}
+	
+	public void incrementBetweenFiftyAndEighty() {
+		betweenFiftyAndEighty++;
+	}
+	
+	public int getLessThanFifty() {
+		return lessThanFifty;
+	}
+	
+	public int getGreaterThanEighty() {
+		return greaterThanEighty;
+	}
+	
+	public int getBetweenFiftyAndEighty() {
+		return betweenFiftyAndEighty;
+	}
+	
