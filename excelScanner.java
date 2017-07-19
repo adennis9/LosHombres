@@ -201,32 +201,38 @@ public class excelScanner {
 		 */
 		try{
 		String htmlInputString = 
-				"<!DOCTYPE html><html><head><title>Teacher Data Analytics</title>" +
-                        "<link href=\"http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.css\" rel=\"stylesheet\" media=\"screen\">" +
-                        "</head><body bgcolor=\"#E6E22A\"><div style=\"text-align:center; color:#00B2EE;\"><h2>Teacher Data Analytics Portal</h2></div>" +
-                        "<div class=\"container\"><ul class=\"nav nav-tabs nav-stacked\"><li class=\"active\" style=\"text-align:center;\"><a href=\"#ratio\" data-toggle=\"tab\">Gender Ratio</a></li>" +
-                        "<li style=\"text-align:center;\"><a href=\"#region\" data-toggle=\"tab\">Region Distribution</a></li><li style=\"text-align:center;\"><a href=\"#income\" data-toggle=\"tab\">Income Ranges</a></li>" +
-                        "<li style=\"text-align:center;\"><a href=\"#joined\" data-toggle=\"tab\">Date Joined</a></li></ul><div class=\"tab-content\"><div class=\"tab-pane active\" id=\"ratio\">" +
-                        "<h3 style=\"color:#00B2EE;\">Gender Ratio</h3><div id=\"gender-piechart\"></div><script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>" +
-                        "</div><div class=\"tab-pane\" id=\"region\"><h3 style=\"color:#00B2EE;\">Region Distribution</h3><div id=\"region-piechart\"></div>" +
-                        "<script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script></div><div class=\"tab-pane\" id=\"income\">" +
-                        "<h3 style=\"color:#00B2EE;\">Income Ranges</h3><div id=\"income-div\"></div><script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>" +
-                        "</div><div class=\"tab-pane\" id=\"joined\"><h3 style=\"color:#00B2EE;\">Date Joined</h3><div id=\"joined_div\"></div></div></div></div></body></html>" +
-                        "<script src=\"http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js\"></script><script src=\"http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/js/bootstrap.min.js\"></script>" +
-                        "<script type=\"text/javascript\">google.charts.load('current', {'packages':['corechart']});google.charts.setOnLoadCallback(drawGenderChart);google.charts.setOnLoadCallback(drawRegionChart);;" +
-                        "function drawGenderChart() {var data = google.visualization.arrayToDataTable([['Task', 'Ratio of Male to Female Teachers'],['Male', " + maleCountS + "],['Female'," + femaleCountS +"]]);" +
-              "var options = {'title':'Male/Female Ratio', 'width':1200, 'height':450, pieHole: 0.4};var chart = new google.visualization.PieChart(document.getElementById('gender-piechart'));" +
-              "chart.draw(data, options);}function drawRegionChart() {var data = google.visualization.arrayToDataTable([['Task', 'Region Distribution']," +
-              "['N', " + northS + "],['NW', " + northWestS + "],['NE'," + northEastS + "],['S', " + southS + " ],['SW', "+southWestS+"],['SE', "+southEastS+"],['W',"+ westS + "],['E', "+eastS+"]]);" +
-                        "var chart = new google.visualization.PieChart(document.getElementById('region-piechart'));chart.draw(data, options)}</script><script>google.charts.load('current', {packages: ['corechart', 'bar']});" +
-                        "google.charts.setOnLoadCallback(drawJoinedChart);google.charts.setOnLoadCallback(drawIncomeChart);function drawJoinedChart() {var data = google.visualization.arrayToDataTable([" +
-                        "['Range', 'Teachers'],['Before 1985', "+ dateBlock1S +"],['(1985) - 2000', "+dateBlock2S+"],['(2000) - 2016', "+ dateBlock3S +"],['(2016) - Present', "+ dateBlock4S+"]]);" +
-                        "var options = {title: 'Numbers Joined',chartArea: {width: '50%'},width : 1200,height : 450,hAxis: {title: 'Total Joined',minValue: 0,textStyle: {bold: true,fontSize: 12,color: '#4d4d4d'},titleTextStyle: {bold: true,fontSize: 18,color: '#4d4d4d'" +
-                        "}},vAxis: {title: '',textStyle: {fontSize: 14,bold: true,color: '#848484'},titleTextStyle: {fontSize: 14,bold: true,color: '#848484'}}};var chart = new google.visualization.BarChart(document.getElementById('joined_div'));" +
-                        "chart.draw(data, options);}function drawIncomeChart() {var data = google.visualization.arrayToDataTable([['Range', 'Teachers'],['Less than $50,000', "+ lessThanFiftyS +"]," +
-                        "['($50,000) - $80,000', " + betweenFiftyAndEightyS + "],['More than ($80,000)', "+ greaterThanEightyS +"],]);var options = {title: 'Numbers Earning',chartArea: {width: '50%'},width : 1200," +
-                        "height : 450,hAxis: {title: 'Total Teachers',minValue: 0,textStyle: {bold: true,fontSize: 12,color: '#4d4d4d'},titleTextStyle: {bold: true,fontSize: 18,color: '#4d4d4d'}},vAxis: {title: '',textStyle: {" +
-                        "fontSize: 14,bold: true,color: '#848484'},titleTextStyle: {fontSize: 14,bold: true,color: '#848484'}}};var chart = new google.visualization.BarChart(document.getElementById('income-div'));chart.draw(data, options);}</script>";
+				 "<!DOCTYPE html><html><head><title>Teacher Data Analytics</title>" +
+                         "<link href=\"http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.css\" rel=\"stylesheet\" media=\"screen\">" +
+                         "</head><body bgcolor=\"#E6E22A\"><div style=\"text-align:center; color:#00B2EE;\"><h2>Teacher Data Analytics Portal</h2></div>" +
+                         "<div class=\"container\"><ul class=\"nav nav-tabs nav-stacked\"><li class=\"active\" style=\"text-align:center;\"><a href=\"#ratio\" data-toggle=\"tab\">Gender Ratio</a></li>" +
+                         "<li style=\"text-align:center;\"><a href=\"#region\" data-toggle=\"tab\">Region Distribution</a></li><li style=\"text-align:center;\"><a href=\"#income\" data-toggle=\"tab\">Income Ranges</a></li>" +
+                         "<li style=\"text-align:center;\"><a href=\"#joined\" data-toggle=\"tab\">Date Joined</a></li></ul><div class=\"tab-content\"><div class=\"tab-pane active\" id=\"ratio\">" +
+                         "<h3 style=\"color:#00B2EE;\">Gender Ratio</h3><div id=\"gender-piechart\"></div><script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>" +
+                         "</div><div class=\"tab-pane\" id=\"region\"><h3 style=\"color:#00B2EE;\">Region Distribution</h3><div id=\"region-piechart\"></div>" +
+                         "<script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script></div><div class=\"tab-pane\" id=\"income\">" +
+                         "<h3 style=\"color:#00B2EE;\">Income Ranges</h3><div id=\"income-div\"></div><script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>" +
+                         "</div><div class=\"tab-pane\" id=\"joined\"><h3 style=\"color:#00B2EE;\">Date Joined</h3><div id=\"joined_div\"></div></div></div></div></body></html>" +
+                         "<script src=\"http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js\"></script><script src=\"http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/js/bootstrap.min.js\"></script>" +
+                         "<script type=\"text/javascript\">google.charts.load('current', {'packages':['corechart']});google.charts.setOnLoadCallback(drawGenderChart);google.charts.setOnLoadCallback(drawRegionChart);" +
+                         "function drawGenderChart() {var data = google.visualization.arrayToDataTable([['Task', 'Ratio of Male to Female Teachers'],['Male', " + maleCountS + "],['Female'," + femaleCountS +"]]);" +
+               "var options = {'title':'Male/Female Ratio', 'width':1200, 'height':450, pieHole: 0.4};var chart = new google.visualization.PieChart(document.getElementById('gender-piechart'));" +
+                         
+                          
+               "chart.draw(data, options);}function drawRegionChart() {var data = google.visualization.arrayToDataTable([['Task', 'Region Distribution']," +
+               "['N', " + northS + "],['NW', " + northWestS + "],['NE'," + northEastS + "],['S', " + southS + " ],['SW', "+southWestS+"],['SE', "+southEastS+"],['W',"+ westS + "],['E', "+eastS+"]]);" +
+                         "var options = {'title':'Region Distribution', 'width':1200, 'height':450,  pieSliceTextStyle: {color: 'black',}};" +
+                         "var chart = new google.visualization.PieChart(document.getElementById('region-piechart'));chart.draw(data, options)}</script><script>google.charts.load('current', {packages: ['corechart', 'bar']});" +
+                         "google.charts.setOnLoadCallback(drawJoinedChart);google.charts.setOnLoadCallback(drawIncomeChart);function drawJoinedChart() {var data = google.visualization.arrayToDataTable([" +
+                         
+                          
+                          "['Range', 'Teachers'],['Before 1985', "+ dateBlock1S +"],['(1985) - 2000', "+dateBlock2S+"],['(2000) - 2016', "+ dateBlock3S +"],['(2016) - Present', "+ dateBlock4S+"]]);" +
+                         "var options = {title: 'Numbers Joined',chartArea: {width: '50%'},width : 1200,height : 450,hAxis: {title: 'Total Joined',minValue: 0,textStyle: {bold: true,fontSize: 12,color: '#4d4d4d'},titleTextStyle: {bold: true,fontSize: 18,color: '#4d4d4d'" +
+                         "}},vAxis: {title: '',textStyle: {fontSize: 14,bold: true,color: '#848484'},titleTextStyle: {fontSize: 14,bold: true,color: '#848484'}}};var chart = new google.visualization.BarChart(document.getElementById('joined_div'));" +
+                         "chart.draw(data, options);}function drawIncomeChart() {var data = google.visualization.arrayToDataTable([['Range', 'Teachers'],['Less than $50,000', "+ lessThanFiftyS +"]," +
+                         "['($50,000) - $80,000', " + betweenFiftyAndEightyS + "],['More than ($80,000)', "+ greaterThanEightyS +"],]);var options = {title: 'Numbers Earning',chartArea: {width: '50%'},width : 1200," +
+                         "height : 450,hAxis: {title: 'Total Teachers',minValue: 0,textStyle: {bold: true,fontSize: 12,color: '#4d4d4d'},titleTextStyle: {bold: true,fontSize: 18,color: '#4d4d4d'}},vAxis: {title: '',textStyle: {" +
+                         "fontSize: 14,bold: true,color: '#848484'},titleTextStyle: {fontSize: 14,bold: true,color: '#848484'}}};var chart = new google.visualization.BarChart(document.getElementById('income-div'));chart.draw(data, options);}</script>";
+
 
 
 
